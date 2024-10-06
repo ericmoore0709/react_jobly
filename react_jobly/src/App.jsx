@@ -1,10 +1,16 @@
+import { BrowserRouter } from 'react-router-dom'
 import './App.css'
+import Navigation from './Navigation'
+import SiteRoutes from './SiteRoutes'
 
 function App() {
 
   return (
     <>
-      <h1>My App</h1>
+      <BrowserRouter>
+        <Navigation />
+        <SiteRoutes />
+      </BrowserRouter>
     </>
   )
 }
