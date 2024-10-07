@@ -1,7 +1,7 @@
 import { BrowserRouter } from 'react-router-dom'
 import './App.css'
 import Navigation from './Navigation'
-import SiteRoutes from './SiteRoutes'
+import RoutesList from './RoutesList'
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
     <>
       <BrowserRouter>
         <Navigation />
-        <SiteRoutes />
+        <RoutesList />
       </BrowserRouter>
     </>
   )
