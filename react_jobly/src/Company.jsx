@@ -9,11 +9,14 @@ const Company = ({ companies }) => {
 
     if (!company) return (<NotFound404 />);
 
-    const { name } = company;
+    const { name, description, numEmployees, logoUrl } = company;
 
     return (
         <div>
             <h1>{name}</h1>
+            <p>{description}</p>
+            <img src={logoUrl} width={'200px'} />
+            <p><strong>{numEmployees} employees</strong> work here</p>
         </div>
     )
 }
