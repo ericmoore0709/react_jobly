@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { Input, List, ListGroupItem } from "reactstrap";
 import { useEffect, useState } from "react";
 import JoblyApi from '../api';
+import CompanyCard from "./CompanyCard";
 
 const CompaniesList = ({ companies: initialCompanies }) => {
 
@@ -15,7 +15,6 @@ const CompaniesList = ({ companies: initialCompanies }) => {
             try {
                 const queryParams = { name: searchQuery };
                 const filteredCompanies = await JoblyApi.getCompaniesByQuery(queryParams);
-                console.log(filteredCompanies);
                 setCompanies(filteredCompanies);
             } catch (error) {
                 console.error("Error fetching filtered companies:", error);
@@ -44,7 +43,7 @@ const CompaniesList = ({ companies: initialCompanies }) => {
             <List>
                 {companies.map(x => (
                     <ListGroupItem key={x.handle}>
-                        <Link to={`/companies/${x.handle}`}>{x.name}</Link>
+                        <CompanyCard handle={x.handle} name={x.name} description={x.description} />
                     </ListGroupItem>
                 ))}
             </List>

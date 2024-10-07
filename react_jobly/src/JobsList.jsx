@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { List, ListGroupItem } from "reactstrap";
+import JobCard from "./JobCard";
 
 const JobsList = ({ jobs }) => {
     return (
@@ -8,7 +8,9 @@ const JobsList = ({ jobs }) => {
             <h1>Jobs</h1>
             <List>
                 {jobs.map(x =>
-                    <ListGroupItem key={x.id} ><Link to={`/jobs/${x.id}`}>{x.title}</Link></ListGroupItem>
+                    <ListGroupItem key={x.id} >
+                        <JobCard id={x.id} title={x.title} salary={x.salary} equity={x.equity} />
+                    </ListGroupItem>
                 )}
             </List>
         </div>

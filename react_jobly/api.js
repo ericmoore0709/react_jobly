@@ -61,14 +61,15 @@ class JoblyApi {
 
   /**
    * Gets a list of companies by query search
-   * @param {*} query 
-   * @returns 
+   * @param {*} queryParams an object with query parameters 
+   * @returns a list of companies
    */
   static async getCompaniesByQuery(queryParams) {
     const queryString = new URLSearchParams(queryParams).toString();
     let res = await this.request(`companies?${queryString}`);
     return res.companies;
   }
+
 }
 
 // for now, put token ("testuser" / "password" on class)
