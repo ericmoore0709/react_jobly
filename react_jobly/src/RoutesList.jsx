@@ -5,7 +5,6 @@ import JobsList from "./JobsList";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import ProfileForm from "./ProfileForm";
-import JobDetails from "./JobDetails";
 import NotFound404 from "./NotFound404";
 import JoblyApi from "../api";
 import { useEffect, useState } from "react";
@@ -49,7 +48,6 @@ const RoutesList = () => {
             <Route path="/companies" element={<CompaniesList companies={companies} />} />
             <Route path="/companies/:handle" element={<CompanyDetails companies={companies} jobs={jobs} />} />
             <Route path="/jobs" element={<JobsList jobs={jobs} />} />
-            <Route path="/jobs/:id" element={<JobDetails jobs={jobs} />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
             <Route path="/profile" element={<ProfileForm />} />
