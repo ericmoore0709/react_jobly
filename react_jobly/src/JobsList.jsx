@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
+import { List, ListGroupItem } from "reactstrap";
 
 const JobsList = ({ jobs }) => {
     return (
         <div>
             <h1>Jobs</h1>
-            <ul>
+            <List>
                 {jobs.map(x =>
-                    <li key={x.id} ><Link to={`/jobs/${x.id}`}>{x.title}</Link></li>
+                    <ListGroupItem key={x.id} ><Link to={`/jobs/${x.id}`}>{x.title}</Link></ListGroupItem>
                 )}
-            </ul>
+            </List>
         </div>
     )
 }

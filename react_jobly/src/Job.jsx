@@ -14,8 +14,8 @@ const Job = ({ jobs }) => {
         <div>
             <h1>{title}</h1>
             <p>Offered by <Link to={`/companies/${companyHandle}`}>{companyName}</Link></p>
-            <p>Salary: {`$${salary.toLocaleString()}`}</p>
-            <p>Equity: {`${(equity * 100).toFixed(2)}%`}</p>
+            <p>Salary: {salary ? `$${salary.toLocaleString()}` : 'none'}</p>
+            <p>Equity: {equity ? `${(equity * 100).toFixed(2)}%` : 'none'}</p>
         </div>
     )
 }
