@@ -70,6 +70,26 @@ class JoblyApi {
     return res.companies;
   }
 
+  /**
+   * Attempts to validate the user's credentials.
+   * @param {*} data the user data to validate
+   * @returns a valid token if user found
+   */
+  static async login(data) {
+    let res = await this.request(`auth/token`, data, 'post');
+    return res.token;
+  }
+
+  /**
+   * Attempts to register the new user.
+   * @param {*} data the user data to register
+   * @returns a valid token if user created
+   */
+  static async signup(data) {
+    let res = await this.request(`auth/register`, data, 'post');
+    return res.token;
+  }
+
 }
 
 // for now, put token ("testuser" / "password" on class)
