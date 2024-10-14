@@ -4,7 +4,7 @@ import NotFound404 from "./NotFound404";
 import { useEffect, useState } from "react";
 import JobCard from "./JobCard";
 
-const CompanyDetails = ({ companies, jobs }) => {
+const CompanyDetails = ({ companies, jobs, appliedJobs, applyToJob }) => {
 
     const { handle } = useParams();
     const [company, setCompany] = useState(null);
@@ -36,7 +36,7 @@ const CompanyDetails = ({ companies, jobs }) => {
             <div>
                 <h2>Jobs</h2>
                 <div>
-                    {companyJobs.map(x => <JobCard key={x.id} id={x.id} title={x.title} salary={x.salary} equity={x.equity} />)}
+                    {companyJobs.map(x => <JobCard key={x.id} id={x.id} title={x.title} salary={x.salary} equity={x.equity} applied={appliedJobs.includes(x.id)} applyToJob={applyToJob} />)}
                 </div>
             </div>
         </div>
@@ -45,7 +45,9 @@ const CompanyDetails = ({ companies, jobs }) => {
 
 CompanyDetails.propTypes = {
     companies: PropTypes.array.isRequired,
-    jobs: PropTypes.array.isRequired
+    jobs: PropTypes.array.isRequired,
+    appliedJobs: PropTypes.array,
+    applyToJob: PropTypes.func.isRequired
 }
 
 export default CompanyDetails;

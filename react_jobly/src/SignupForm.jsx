@@ -81,8 +81,6 @@ const SignupForm = ({ processSignup }) => {
                 </FormGroup>
             </Form>
 
-
-
             {/* Show validation errors */}
             {(errors.length > 0) && (
                 <List className="mt-2 px-0">

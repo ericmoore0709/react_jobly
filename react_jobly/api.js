@@ -90,11 +90,37 @@ class JoblyApi {
     return res.token;
   }
 
+  /**
+   * Attempts to get the user with the given username
+   * @param {*} username the username to search
+   * @returns the user if found
+   */
+  static async getCurrentUser(username) {
+    let res = await this.request(`users/${username}`);
+    return res.user;
+  }
+
+  /**
+   * Attempts to update the current user profile
+   * @param {string} username the user's username
+   * @param {*} data the user data to update
+   * @returns the updated user
+   */
+  static async updateUser(username, data) {
+    let res = await this.request(`users/${username}`, data, 'patch');
+    return res.user;
+  }
+
+  static async applyToJob(jobId, username) {
+    let res = await this.request(`users/${username}/jobs/${jobId}`, {}, 'post');
+    return res.applied;
+  }
+
 }
 
-// for now, put token ("testuser" / "password" on class)
-JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
-  "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
-  "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
+// // for now, put token ("testuser" / "password" on class)
+// JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
+//   "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
+//   "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
 
 export default JoblyApi;
