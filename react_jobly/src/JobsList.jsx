@@ -3,9 +3,6 @@ import { List, ListGroupItem } from "reactstrap";
 import JobCard from "./JobCard";
 
 const JobsList = ({ jobs, appliedJobs, applyToJob }) => {
-
-    console.log(appliedJobs);
-
     return (
         <div>
             <h1>Jobs</h1>
